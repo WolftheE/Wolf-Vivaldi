@@ -1,3 +1,15 @@
+/* global stuff (hopefuly this doesnt break anything)*/
+.toolbar-default .button-toolbar > button:enabled {
+    transition: .4s ease-out;
+    background-image: transparent !important;
+}
+
+.toolbar-default .button-toolbar > button:hover {
+    transition: .4s ease-out;
+}
+
+
+
 /* Top tab bar animations */
 #browser .tabbar-wrapper, #browser.tabs-top #header {
     transition: .4s ease-out;
@@ -36,6 +48,7 @@ button.window-close:hover {
     box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.15), 0 2px 4px 0 rgba(0, 0, 0, 0.2);
     margin: 4px auto 0px auto;
     padding: 5px 20px;
+    transition: 0.3s;
 }
 
 .startpage .startpage-navigation .startpage-navigation-group .button-startpage {
@@ -58,7 +71,17 @@ button.window-close:hover {
     top: 0;
 }
 
+/* tree rows in bookmarks, history, etc */
+.vivaldi-tree .tree-row {
+    transition: 0.4s ease-out;
+    border-radius: var(--radius);
+    padding-left: 2px;
+}
 
+.vivaldi-tree .tree-row:hover {
+    transition: 0.25s;
+    background-color: var(--colorFgAlpha);
+}
 
 
 
@@ -77,5 +100,18 @@ button.window-close:hover {
 
 .vivaldi-settings .settings-sidebar .button-category.category-selected {
     background-color: var(--colorHighlightBg);
-    transition: 0.1s;
+    transition: 0.2s;
 }
+.vivaldi-settings .settings-sidebar .button-category.category-selected:hover {
+    background-color: var(--colorHighlightBg);
+    transition: 0.2s;
+}
+
+.vivaldi-settings .settings-sidebar .button-category:hover {
+    background-color: var(--colorFgAlpha);
+    transition: 0.35s;
+}
+.vivaldi-settings .settings-sidebar .button-category {
+    transition: 0.5s ease-out;
+}
+
