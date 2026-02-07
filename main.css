@@ -1,0 +1,81 @@
+/* Top tab bar animations */
+#browser .tabbar-wrapper, #browser.tabs-top #header {
+    transition: .4s ease-out;
+}
+#browser:not(.transparent-tabbar) #tabs-tabbar-container {
+    transition: .4s ease-out;
+}
+
+#browser.linux #tabs-container .window-buttongroup {
+    top: calc(10px / var(--uiZoomLevel));
+}
+
+button.window-minimize, button.window-maximize, button.window-close {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    transition: .4s ease-out;
+}
+button.window-minimize:hover, button.window-maximize:hover {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    transition: .4s ease-out;
+}
+button.window-close:hover {
+    background-color: rgb(238, 0, 16) !important;
+    transition: .3s ease-out;
+}
+
+/* Startpage top bar */
+.startpage .startpage-navigation {
+    width: fit-content;
+    background-color: var(--colorBgAlphaBlur);
+    border-radius: calc(var(--radius) * 2);
+    backdrop-filter: var(--backgroundBlur);
+    box-shadow: none;
+    right: 0;
+    left: 0;
+    position: fixed;
+    box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.15), 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    margin: 4px auto 0px auto;
+    padding: 5px 20px;
+}
+
+.startpage .startpage-navigation .startpage-navigation-group .button-startpage {
+    transition: 0.5s;
+    border-radius: calc(var(--radius) * 2);
+
+    &:hover {
+        transition: 0.35s;
+        background-color: var(--colorFgAlpha);
+    }
+}
+
+.button-startpage:focus-visible, .button-startpage.active {
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}
+
+/* Startpage in genral */
+.SpeedDialView-Settings.navigation-title {
+    top: 0;
+}
+
+
+
+
+
+
+
+
+/* settings tweaks bc why not lol */
+.vivaldi-settings {
+    background-color: transparent; /* maybe remove this if it breaks anything but so far nothing broke */
+}
+
+.vivaldi-settings .settings-sidebar {
+    background-color: var(--colorBgAlphaBlur);
+    backdrop-filter: var(--backgroundBlur);
+}
+
+.vivaldi-settings .settings-sidebar .button-category.category-selected {
+    background-color: var(--colorHighlightBg);
+    transition: 0.1s;
+}
