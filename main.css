@@ -99,21 +99,21 @@ button.window-close:hover {
 }
 
 .vivaldi-tree .tree-row {
-    transition: 0.4s ease-out;
+    transition: background-color 0.4s ease-out;
     border-radius: var(--radius);
     padding-left: 2px;
 }
 
 .vivaldi-tree .tree-row:hover {
-    transition: 0.25s;
+    transition: background-color 0.25s;
     background-color: var(--colorFgAlpha);
 }
 
 .sortselector.sortselector-tableheader > div .sortselector-button {
-    margin: 0px 2px;
+    margin: 0px 0px;
     border-radius: var(--radius);
     background: var(--colorBgDark);
-    transition: 0.3s ease-out;
+    transition: background-color 0.3s ease-out;
 
 }
 
@@ -127,6 +127,19 @@ button.window-close:hover {
     border-top: none;
     border-bottom: none;
     border-color: none;
+    gap: 4px
+}
+
+.startpage .history .manager-content {
+    padding-left: var(--scrollbarWidth);
+}
+
+.NotesManager-Tree-Container {
+    padding-left: var(--scrollbarWidth);
+}
+
+.sortselector .SlideBar--FullHeight.alternate {
+    margin: 0 -3px 0 1px;
 }
 
 /* new tab manager thing */
