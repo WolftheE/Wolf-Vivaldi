@@ -35,6 +35,18 @@ button.window-close:hover {
     transition: .3s ease-out;
 }
 
+
+/* Search bar drop down thing */
+.OmniLinkItem {
+    transition: 0.35s ease-out;
+}
+.OmniLinkItem:hover, .OmniLinkItem--Highlighted:not(.OmniLinkItem--ButtonFocus) {
+    --grid-gap: 16px !important;
+    transition: 0.2s;
+}
+
+
+
 /* Startpage top bar */
 .startpage .startpage-navigation {
     width: fit-content;
@@ -71,7 +83,21 @@ button.window-close:hover {
     top: 0;
 }
 
+.sdwrapper .iconmenu-container.SearchField {
+    background-color: var(--colorBgAlphaBlur);
+    backdrop-filter: var(--backgroundBlur);
+}
+
+.sdwrapper.has-SpeedDial .SpeedDialView {
+    padding: 128px 0 40px;
+}
+
 /* tree rows in bookmarks, history, etc */
+.TabButtonPopup .tree-item[data-expanded] .tree-row {
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
 .vivaldi-tree .tree-row {
     transition: 0.4s ease-out;
     border-radius: var(--radius);
@@ -83,9 +109,98 @@ button.window-close:hover {
     background-color: var(--colorFgAlpha);
 }
 
+.sortselector.sortselector-tableheader > div .sortselector-button {
+    margin: 0px 2px;
+    border-radius: var(--radius);
+    background: var(--colorBgDark);
+    transition: 0.3s ease-out;
+
+}
+
+.sortselector.sortselector-tableheader > div .sortselector-button:hover {
+    background: var(--colorBgLighter);
+    transition: 0.1s;
+
+}
+.sortselector {
+    background-color: transparent !important;
+    border-top: none;
+    border-bottom: none;
+    border-color: none;
+}
+
+/* new tab manager thing */
+.hasfocus .TabButtonPopup .vivaldi-tree .VivaldiList:focus-within .tree-row[data-selected] .window-entry:not(.window-entry-button) {
+    border-radius: var(--radius);
+}
+
+.TabButtonPopup .vivaldi-tree .VivaldiList .tree-item .tree-row {
+    transition: unset;
+    border-radius: unset; /* this just stops the new tab manger thing from looking bugged */
+}
+.TabButtonPopup .tree-item .tree-row:has(.window-parent:not(.window-child)) {
+    border-radius: var(--radius); /* this just stops the new tab manger thing from looking bugged */
+}
+.TabButtonPopup .tree-row-selected label, .TabButtonPopup .tree-row:hover label {
+    background-color: var(--colorFgAlpha);
+    border-radius: var(--radius) !important;
+    transition: background-color 0.2s ease-out
+}
+
+
+/* search popup box when you press ctrl + e thing */
+.hasfocus .quick-command-container .quick-commands .quick-command[data-selected]{ 
+    padding: 0 6px 0 16px;
+    transition: 0.2s;
+}
+
+.quick-command-container .quick-commands .quick-command {
+    margin-left: var(--scrollbarWidth);
+    border-radius: var(--radius);
+    padding: 0 6px 0 6px;
+    transition: 0.35s ease-out;
+}
+
+#modal-bg .modal-wrapper {
+    background-color: var(--colorBgAlphaBlur) !important;
+    backdrop-filter: var(--backgroundBlur);
+}
+/* buttons animations */
+button {
+    transition: 0.15s ease-in;
+    &:hover {
+        transition: 0.25s ease-out;
+    }
+}
+
+.toolbar-panel > .button-toolbar > button {
+    &:hover {
+        background-color: var(--colorFgAlpha);
+    }
+}
 
 
 
+/* side panel animations */
+#window-panel .vivaldi-tree .tree-row label, .panel#mail_panel .vivaldi-tree .tree-row label, #history-panel .vivaldi-tree .tree-row label {
+    transition: 0.25s ease-out;
+    border-radius: var(--radius);
+
+    &:hover {
+        background-color: var(--colorFgAlpha);
+        /*gap: 10px; <- TODO fix this one day */
+        transition: 0.1;
+    }
+}
+
+/* privacy popup menu */
+.theme-dark .PrivacyDash-Title {
+    background: linear-gradient(90deg, #893e15, #582560 50%, #185c7c);
+}
+
+.theme-dark .PrivacyDash .dialog-header {
+    background: linear-gradient(90deg, #893e15, #582560 50%, #185c7c);
+}
 
 
 /* settings tweaks bc why not lol */
