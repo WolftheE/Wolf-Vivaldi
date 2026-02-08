@@ -196,13 +196,14 @@ button {
 
 /* side panel animations */
 #window-panel .vivaldi-tree .tree-row label, .panel#mail_panel .vivaldi-tree .tree-row label, #history-panel .vivaldi-tree .tree-row label {
-    transition: 0.25s ease-out;
+    transition: 0.35s ease-out;
     border-radius: var(--radius);
 
     &:hover {
         background-color: var(--colorFgAlpha);
         /*gap: 10px; <- TODO fix this one day */
-        transition: 0.1;
+        transition: 0.2;
+        padding-left: 16px;
     }
 }
 
