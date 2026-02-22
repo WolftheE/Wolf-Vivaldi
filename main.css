@@ -1,16 +1,29 @@
-/* global stuff (hopefuly this doesnt break anything)*/
-.toolbar-default .button-toolbar > button:enabled {
-    transition: .4s ease-out;
-    background-image: transparent !important;
+/* Hey if you are a Vivaldi dev, can you please add some more animations to your browser.
+
+Please, your browser is missing way to many animations. Most of them can be added with one line of code.
+
+
+/* =============================================
+global stuff (hopefuly this doesnt break anything)
+============================================= */
+
+/*
+select:active {
+    animation: dropfade 300ms cubic-bezier(0.2, 0.9, 0.6, 1) !important;
+} */
+
+.manager, .about-page {
+      z-index: 1000;
+  animation: dropfade 500ms cubic-bezier(0.2, 0.9, 0.6, 1)
 }
 
-.toolbar-default .button-toolbar > button:hover {
-    transition: .4s ease-out;
+.startpage .startpage-content .sdwrapper.has-SpeedDial {
+    animation: dropfade 500ms cubic-bezier(0.2, 0.9, 0.6, 1) !important;
 }
 
-
-
-/* Top tab bar animations */
+/* =============================================
+Top tab bar animations
+=============================================*/
 #browser .tabbar-wrapper, #browser.tabs-top #header {
     transition: .4s ease-out;
 }
@@ -36,7 +49,10 @@ button.window-close:hover {
 }
 
 
-/* Search bar drop down thing */
+/* =============================================
+Search bar drop down thing 
+=============================================
+*/
 .OmniLinkItem {
     transition: 0.35s ease-out;
 }
@@ -47,7 +63,9 @@ button.window-close:hover {
 
 
 
-/* Startpage top bar */
+/* =============================================
+Startpage top bar 
+=============================================*/
 .startpage .startpage-navigation {
     width: fit-content;
     background-color: var(--colorBgAlphaBlur);
@@ -78,7 +96,9 @@ button.window-close:hover {
     border-bottom-right-radius: 0px !important;
 }
 
-/* Startpage in genral */
+/* =============================================
+Startpage in genral 
+=============================================*/
 .SpeedDialView-Settings.navigation-title {
     top: 0;
 }
@@ -92,7 +112,46 @@ button.window-close:hover {
     padding: 128px 0 40px;
 }
 
-/* tree rows in bookmarks, history, etc */
+/*  =============================================
+Mail window
+=============================================  */
+.list-wrapper > .mail-loading {
+    background-color: transparent;
+}
+    
+.webpageview #mail_view .list-wrapper .jump-to-latest-container {
+    animation: dropfade 300ms cubic-bezier(0.2, 0.9, 0.6, 1) !important;
+}
+
+
+.webpageview #mail_view #mail_search {
+    background-color: var(--colorBgIntense);
+}
+
+.webpageview #mail_view .list-wrapper {
+    margin-left: 5px;
+}
+
+.theme-dark#browser:not(.inner) .webpageview #mail_view.vertical #mail_detail, #browser:not(.inner) .webpageview #mail_view.vertical #mail_detail {
+    border-left: 1px solid var(--colorBorder);
+}
+
+
+.MailListButtons, #mail_view .sortselector  {
+    border-left: 1px solid var(--colorBorder);
+    border-bottom: 1px solid var(--colorBorder);
+    background-color: var(--colorBg) !important;
+    
+    &:hover {
+    background-color: var(--colorFgAlpha) !important;
+    }
+}
+
+/*  =============================================
+tree rows in bookmarks, history, etc 
+=============================================  */
+
+
 .TabButtonPopup .tree-item[data-expanded] .tree-row {
     border-bottom-left-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
@@ -178,23 +237,72 @@ button.window-close:hover {
     background-color: var(--colorBgAlphaBlur) !important;
     backdrop-filter: var(--backgroundBlur);
 }
+
+
 /* buttons animations */
-button {
-    transition: 0.15s ease-in;
+
+.toolbar-default .button-toolbar > button:enabled {
+    background-color: var(--colorBg);
+    transition: .4s ease-out;
+    background-image: none !important;
+}
+
+.toolbar-default .button-toolbar > button:hover {
+    transition: .2s ease-out;
+    background-color: var(--colorBgLighter);
+}
+
+input[type=button]:not(.circular), input[type=submit], input[type=color], .FormButton {
+    background-color: var(--colorBg);
+    transition: .4s ease-out;
+    background-image: none !important;
+    
     &:hover {
-        transition: 0.25s ease-out;
+        transition: .2s ease-out;
+        background-color: var(--colorBgLighter);
     }
 }
 
-.toolbar-panel > .button-toolbar > button {
+select:enabled:not([multiple], [size]), .VivaldiSelector:not(:focus-within, .Inner--is-disabled) .Inner__control {
+    background-color: var(--colorBg);
+    transition: .4s ease-out;
+    background-image: none !important;
+    
     &:hover {
-        background-color: var(--colorFgAlpha);
+        transition: .2s ease-out;
+        background-color: var(--colorBgLighter);
     }
+}
+
+.toolbar-default .button-toolbar > button:disabled {
+    color: var(--colorFgFadedMost);
+    background-color: var(--colorBgIntense);
+    border-color: var(--colorBorder);
+}
+
+
+/* =============================================
+side panel animations 
+=============================================
+*/
+
+/* these are changing the unfoucesd selected stuff (vivaldi why tf is this not a thing? */
+.vivaldi-tree .tree-row[data-selected] {
+    background-color: color-mix(in oklab, var(--colorHighlightBg) 25%, transparent);
+}
+
+.panel#mail_panel .tree-item:is([data-selected]) .tree-row .mail_panel_node, .panel#mail_panel .tree-item:is([data-selected]) .tree-row .mail-panel-category {
+    background-color: color-mix(in oklab, var(--colorHighlightBg) 25%, transparent);
+}
+
+#window-panel .vivaldi-tree .VivaldiList .tree-row[data-selected] .window-entry:not(.window-entry-button) {
+    background-color: color-mix(in oklab, var(--colorHighlightBg) 25%, transparent);
 }
 
 
 
-/* side panel animations */
+
+
 #window-panel .vivaldi-tree .tree-row label, .panel#mail_panel .vivaldi-tree .tree-row label, #history-panel .vivaldi-tree .tree-row label {
     transition: 0.35s ease-out;
     border-radius: var(--radius);
@@ -207,7 +315,13 @@ button {
     }
 }
 
-/* privacy popup menu */
+.panel {
+    animation: dropfade 500ms cubic-bezier(0.2, 0.9, 0.6, 1) !important;
+}
+
+/* =============================================
+privacy popup menu
+============================================= */
 .theme-dark .PrivacyDash-Title {
     background: linear-gradient(90deg, #893e15, #582560 50%, #185c7c);
 }
@@ -217,7 +331,9 @@ button {
 }
 
 
-/* settings tweaks bc why not lol */
+/* =============================================
+settings tweaks bc why not lol
+============================================= */
 .vivaldi-settings {
     background-color: transparent; /* maybe remove this if it breaks anything but so far nothing broke */
 }
@@ -244,3 +360,7 @@ button {
     transition: 0.5s ease-out;
 }
 
+/* Adds a cool animation to settings (come on vivaldi... its one line of code)*/
+section.setting-section {
+    animation: dropfade 300ms cubic-bezier(0.2, 0.9, 0.6, 1) !important;
+}
