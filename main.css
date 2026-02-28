@@ -19,7 +19,7 @@ select:active {
 
 .about-page .header-section::after {
     max-width: 140px;
-    content: "Wolf-Vivaldi theme version 1.1 Created by WolftheE";
+    content: "Wolf-Vivaldi theme version 1.2 Created by WolftheE";
     color: var(--colorFgFadedMost);
     text-align: right;
 }
@@ -274,8 +274,11 @@ input[type=button]:not(.circular), input[type=submit], input[type=color], .FormB
     
     &:hover {
         transition: .2s ease-out;
-        background-color: var(--colorBgLighter);
     }
+}
+
+input[type=button]:not(.circular):hover, .FormButton:hover {
+  background-color: var(--colorBgLighter);
 }
 
 select:enabled:not([multiple], [size]), .VivaldiSelector:not(:focus-within, .Inner--is-disabled) .Inner__control {
