@@ -1,6 +1,9 @@
-<img src="you-can-delete-this-folder/main_photo.png" alt="main screenshot here" width="40%">
+<div align="center">
+ <img src="you-can-delete-this-folder/main_photo.png" alt="main screenshot here" width="50%">
+</div>
+
 <h1 align="center">Wolf Vivaldi</h1>
-<p>Make Vivaldi more smoother and less cluttered</p>
+<p align="center">Make Vivaldi more smoother and less cluttered</p>
 <br>
 
 
