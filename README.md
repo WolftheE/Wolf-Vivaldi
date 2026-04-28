@@ -2,7 +2,7 @@
  <img src="you-can-delete-this-folder/main_photo.png" alt="main screenshot here" width="50%">
 </div>
 
-<h1 align="center">Wolf Vivaldi</h1>
+<h1 align="center">Wolfe's Vivaldi</h1>
 <p align="center">Make Vivaldi more smoother and less cluttered</p>
 <br>
 
