@@ -7,6 +7,10 @@ Please, your browser is missing way to many animations. Most of them can be adde
 global stuff (hopefuly this doesnt break anything)
 ============================================= */
 
+:root {
+    --cubic-ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
 /*
 select:active {
     animation: dropfade 300ms cubic-bezier(0.2, 0.9, 0.6, 1) !important;
@@ -14,12 +18,12 @@ select:active {
 
 .manager, .about-page {
   z-index: 1000;
-  animation: scaleout 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  animation: scaleout 600ms var(--cubic-ease-out);
 }
 
 .about-page .header-section::after {
     max-width: 160px;
-    content: "Wolfe's Vivaldi theme ver 1.4.0 Created by WolftheE";
+    content: "Wolfe's Vivaldi theme ver 2.0.0 Created by WolftheE";
     color: var(--colorFgFadedMore);
     text-align: right;
 }
@@ -57,7 +61,7 @@ select:active {
 
 
 .CalendarEventBubble {
-    animation: scaleout 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    animation: scaleout 600ms var(--cubic-ease-out);
 }
 
 
@@ -85,20 +89,18 @@ Top tab bar animations
 
 button.window-minimize, button.window-maximize, button.window-close {
     background-color: rgba(255, 255, 255, 0.05) !important;
-    transition: .4s ease-out;
+    transition: background-color .4s ease-out;
 }
 button.window-minimize:hover, button.window-maximize:hover {
     background-color: rgba(255, 255, 255, 0.2) !important;
-    transition: .4s ease-out;
 }
 button.window-close:hover {
     background-color: rgb(238, 0, 16) !important;
-    transition: .3s ease-out;
 }
 
 
 /* =============================================
-Search bar drop down thing 
+Search bar things
 =============================================
 */
 .OmniLinkItem {
@@ -109,51 +111,61 @@ Search bar drop down thing
     transition: 0.2s;
 }
 
-
+.SearchField, .MailSearchField-Inner, .UrlBar-AddressField {
+    transition: outline .2s ease-out;
+    outline: 2px solid transparent;
+}
 
 /* =============================================
 Startpage top bar 
 =============================================*/
 .startpage .startpage-navigation {
-    width: fit-content;
+    min-height: unset;
+    max-width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3px;
     background-color: var(--colorBgAlphaBlur);
-    border-radius: calc(var(--radius) * 2);
-    backdrop-filter: var(--backgroundBlur);
-    box-shadow: none;
-    right: 0;
-    left: 0;
-    position: fixed;
-    box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.15), 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-    margin: 4px auto 0px auto;
-    padding: 4px 20px;
-    transition: 0.3s;
+    backdrop-filter: var(--backgroundBlur, var(--unifiedBlur));
+    box-shadow: unset;
+    margin-top: 12px;
+    border-radius: calc(var(--radius) + (6px / 2));
 }
 
-.startpage .startpage-navigation .startpage-navigation-group .button-startpage {
-    transition: 0.5s;
-    border-radius: calc(var(--radius) * 2);
+#browser .button-startpage, #browser.unified-ui .startpage.is-showing-speeddial .button-startpage {
+    border-bottom: none;
+    min-height: 30px;
+
+    border-radius: var(--radius);
+    border-width: 0;
+    background-color: transparent;
+
+    transition: background-color 0.2s ease-out;
 
     &:hover {
-        transition: 0.35s;
         background-color: var(--colorFgAlpha);
     }
 }
 
-.button-startpage:focus-visible, .button-startpage.active {
-    border-bottom-left-radius: 0px !important;
-    border-bottom-right-radius: 0px !important;
+#browser .button-startpage.active, #browser.unified-ui .startpage.is-showing-speeddial .button-startpage.active {
+    background-color: var(--colorHighlightBgAlpha);
+    
+
+    &:hover {
+        background-color: var(--colorHighlightBg);
+    }
+}
+
+#browser:not(.unified-ui, .unified-ui-transparent) #webview-container {
+    background-color: var(--colorBg);
 }
 
 /* =============================================
 Startpage in genral 
 =============================================*/
-.SpeedDialView-Settings.navigation-title {
-    top: 0;
-}
-
 .sdwrapper .iconmenu-container.SearchField {
     background-color: var(--colorBgAlphaBlur);
-    backdrop-filter: var(--backgroundBlur);
+    backdrop-filter: var(--backgroundBlur, var(--unifiedBlur));
 }
 
 .sdwrapper.has-SpeedDial .SpeedDialView {
@@ -161,7 +173,7 @@ Startpage in genral
 }
 
 .SpeedDial--Icon .thumbnail-favicon, .SpeedDial--Icon .thumbnail-favicon-folder {
-    transition: scale 500ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: scale 500ms var(--cubic-ease-out)
 }
 
 /*  =============================================
@@ -218,13 +230,13 @@ tree rows in bookmarks, history, etc
 }
 
 .vivaldi-tree .tree-row {
-    transition: background-color 0.4s ease-out;
+    transition: background-color 0.3s ease-out;
     border-radius: var(--radius);
     padding-left: 2px;
 }
 
 .vivaldi-tree .tree-row:hover {
-    transition: background-color 0.25s;
+    transition: background-color 0.15s;
     background-color: var(--colorFgAlpha);
 }
 
@@ -232,7 +244,7 @@ tree rows in bookmarks, history, etc
     margin: 0px 0px;
     border-radius: var(--radius);
     background: var(--colorBgDark);
-    transition: background-color 0.3s ease-out;
+    transition: background-color 0.2s ease-out;
 
 }
 
@@ -295,12 +307,12 @@ tree rows in bookmarks, history, etc
 
 #modal-bg .modal-wrapper {
     background-color: var(--colorBgAlphaBlur) !important;
-    backdrop-filter: var(--backgroundBlur);
+    backdrop-filter: var(--backgroundBlur, var(--unifiedBlur));
 }
 
 
 #modal-bg.float {
-    animation: scaleout 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    animation: scaleout 500ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 
@@ -313,18 +325,14 @@ tree rows in bookmarks, history, etc
 }
 
 .toolbar-default .button-toolbar > button:hover {
-    transition: .2s ease-out;
+    transition: .1s ease-out;
     background-color: var(--colorBgLighter);
 }
 
 input[type=button]:not(.circular), input[type=submit], input[type=color], .FormButton {
     background-color: var(--colorBgLight);
-    transition: .4s ease-out;
+    transition: background-color .2s ease-out;
     background-image: none !important;
-    
-    &:hover {
-        transition: .2s ease-out;
-    }
 }
 
 input[type=button]:not(.circular):hover, .FormButton:hover {
@@ -333,11 +341,10 @@ input[type=button]:not(.circular):hover, .FormButton:hover {
 
 select:enabled:not([multiple], [size]), .VivaldiSelector:not(:focus-within, .Inner--is-disabled) .Inner__control, .PeriodPicker {
     background-color: var(--colorBgLight);
-    transition: .4s ease-out;
+    transition: background-color .2s ease-out;
     background-image: none !important;
     
     &:hover {
-        transition: .2s ease-out;
         background-color: var(--colorBgLighter);
     }
 }
@@ -390,28 +397,49 @@ side panel animations
     animation: dropfade 500ms cubic-bezier(0.2, 0.9, 0.6, 1) !important;
 }
 
+
+#panels .webpanel-stack.hidden {
+    visibility: hidden;
+    margin: 0;
+    flex: 0;
+}
+#panels .webpanel-stack {
+    border-radius: var(--radius);
+    position: relative;
+    visibility: visible;
+    display: flex;
+    flex: 1;
+    margin: 8px;
+    overflow: hidden;
+}
+
 /* =============================================
 privacy popup menu
 ============================================= */
-.theme-dark .PrivacyDash-Title {
-    background: linear-gradient(90deg, #893e15, #582560 50%, #185c7c);
+.theme-dark .PrivacyDash-Title, .theme-dark .PrivacyDash .dialog-header {
+    background: linear-gradient(90deg, #893e15, #582560 50%, #185c7c) !important;
 }
 
-.theme-dark .PrivacyDash .dialog-header {
-    background: linear-gradient(90deg, #893e15, #582560 50%, #185c7c);
+.PrivacyDash-Title, .PrivacyDash .dialog-header {
+    background: linear-gradient(98deg, rgb(249, 227, 215), rgb(231, 204, 235) 50%, rgb(208, 234, 246));;
 }
 
 
 /* =============================================
 settings tweaks bc why not lol
 ============================================= */
+#browser.is-settingspage { /* revert this change */
+    background-image: var(--browserBackgroundImage) !important;
+}
+
+
 .vivaldi-settings {
     background-color: transparent; /* maybe remove this if it breaks anything but so far nothing broke */
 }
 
 .vivaldi-settings .settings-sidebar {
     background-color: var(--colorBgAlphaBlur);
-    backdrop-filter: var(--backgroundBlur);
+    backdrop-filter: var(--backgroundBlur, var(--unifiedBlur));
 }
 
 .vivaldi-settings .settings-sidebar .button-category.category-selected {
